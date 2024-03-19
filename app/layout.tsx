@@ -1,4 +1,4 @@
-
+import { Navbar } from "@/app/components/Navbar/Navbar";
 import "./globals.css";
 
 
@@ -10,7 +10,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="de">
-      <body className={''}>{children}</body>
+      <body className="flex p-8">
+        <Navbar/>
+        <div className="px-8 mt-16">
+          {children}
+        </div>
+        
+      </body>
     </html>
   );
 }
