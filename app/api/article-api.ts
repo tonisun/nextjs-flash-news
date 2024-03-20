@@ -1,4 +1,4 @@
-import { Article, ArticleListResponse } from '../types/article-type'
+import { Article, ArticleCategory, ArticleListResponse } from '../types/article-type'
 
 export class ArticleAPI {
 
@@ -6,7 +6,16 @@ export class ArticleAPI {
         
         return ( await((
                             await fetch(
-                                "http://localhost:3090/news"
+                                `${process.env.API_BASE_URL}`
+                            )
+                        ).json()) as ArticleListResponse).results
+    }
+
+    static async fetchByCategory(category: ArticleCategory): Promise<Article[]> {
+        
+        return ( await((
+                            await fetch(
+                                `${process.env.API_BASE_URL}?category=${category}`
                             )
                         ).json()) as ArticleListResponse).results
     }

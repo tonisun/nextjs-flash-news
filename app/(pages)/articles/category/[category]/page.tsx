@@ -1,18 +1,32 @@
+import { ArticleAPI } from "@/app/api/article-api"
+import { ArticleList } from "@/app/components/ArticleList/ArticleList"
+import { Article, ArticleCategory } from "@/app/types/article-type"
 import { CATEGORIES } from "@/app/constants"
 import Image from "next/image"
-import { ArticleCategory } from "@/app/types/article-type"
 
-export default function CategoryDetailPage (p: { params:{ category: ArticleCategory; date: string}}){
+export default async function ArticlesByCategory (p: {
+    params: {
+        category: ArticleCategory; 
+        articles: Article[]
+    }
+}) {
 
-    const image = CATEGORIES[p.params.category]
 
-    return (
-        <div className="flex items-center space-x-4">
-            <Image {...image} className="w-8 h-8"/>
-            <h1 className="capitalize font-bold text-3xl">
-                {p.params.category} News
-            </h1>
-        
+    const articles = await ArticleAPI.fetchByCategory(p.params.category)
+
+    return ( 
+        <div>
+            <div className="flex items-center space-x-4 mb-16">
+                <Image
+                src={CATEGORIES[p.params.category].src}
+                className="h-10 w-10"
+                alt="Latest news icon"
+                />
+                <h1 className="text-4xl font-bold capitalize">
+                {p.params.category} news
+                </h1>
+            </div>
+            <ArticleList articles={articles} /> 
         </div>
     )
 }

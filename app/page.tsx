@@ -5,7 +5,7 @@ import { LatestNews } from "@/app/components/LatestNews/LatestNews"
 export default function IndexPage() {
 
   return (
-    <div className="bg-gray-200">
+    <div>
       <LatestNews />
     </div>
   )
