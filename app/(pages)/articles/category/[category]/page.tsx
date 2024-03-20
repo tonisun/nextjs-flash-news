@@ -4,13 +4,28 @@ import { Article, ArticleCategory } from "@/app/types/article-type"
 import { CATEGORIES } from "@/app/constants"
 import Image from "next/image"
 
+export function generateStaticParams() {
+    
+    const params = []
+    let category:ArticleCategory
+
+    for (category in CATEGORIES) {
+        params.push({
+            params: {
+                category,
+                articles: ArticleAPI.fetchByCategory(category)
+            }
+        })
+    }
+
+    return params
+}
+
 export default async function ArticlesByCategory (p: {
     params: {
-        category: ArticleCategory; 
-        articles: Article[]
+        category: ArticleCategory
     }
 }) {
-
 
     const articles = await ArticleAPI.fetchByCategory(p.params.category)
 
