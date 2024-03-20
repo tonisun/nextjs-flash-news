@@ -65,24 +65,25 @@ import public_relations from '@/public/assets/images/public-relations.png'
 import personal from '@/public/assets/images/personal.png'
 import corporate from '@/public/assets/images/corporate.png'
 
+export type ArticleCategory = "business" | "environment" | "technology" | "world"  // Füge alle möglichen Kategorien hinzu
 
 export const CATEGORIES = {
-    business: { src: business, alt: "Business logo", category: "business" },
+    business: { src: business, alt: "Business logo", category: "business" as ArticleCategory },
     crime: { src: crime, alt: "Crime logo", category: "crime" },
     domestic: { src: domestic, alt: "Domestic logo", category: "domestic" },
     education: { src: education, alt: "Education logo", category: "education" },
     entertainment: { src: entertainment, alt: "Entertainment logo", category: "entertainment" },
-    environment: { src: environment, alt: "Environment logo", category: "environment" },
+    environment: { src: environment, alt: "Environment logo", category: "environment" as ArticleCategory },
     food: { src: food, alt: "Food logo", category: "food" },
     health: { src: health, alt: "Health logo", category: "health" },
     other: { src: other, alt: "Other logo", category: "other" },
     science: { src: science, alt: "Science logo", category: "science" },
     sports: { src: sports, alt: "Sport logo", category: "sports" },
     politics: { src: politics, alt: "Politics logo", category: "politics" },
-    technology: { src: technology, alt: "Technology logo", category: "technology" },
+    technology: { src: technology, alt: "Technology logo", category: "technology" as ArticleCategory },
     top: { src: top, alt: "Top logo", category: "top" },
     tourism: { src: tourism, alt: "Tourism logo", category: "tourism" },
-    world: { src: world, alt: "World logo", category: "world" }
+    world: { src: world, alt: "World logo", category: "world" as ArticleCategory }
 }
 
 export const NAV_ITEMS = [

@@ -12,7 +12,7 @@ export function Navbar() {
             {/* Navbar */}
             <nav className="space-y-4 mt-4">
                 {NAV_ITEMS.map((navbarItem) => (
-                    <NavbarItem {...navbarItem} />
+                    <NavbarItem {...navbarItem} key={navbarItem.category} />
                 ))}
             </nav>
         </div>

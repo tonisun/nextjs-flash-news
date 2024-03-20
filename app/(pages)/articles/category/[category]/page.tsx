@@ -1,24 +1,18 @@
 import { ArticleAPI } from "@/app/api/article-api"
 import { ArticleList } from "@/app/components/ArticleList/ArticleList"
 import { ArticleCategory } from "@/app/types/article-type"
-import { CATEGORIES } from "@/app/constants"
+import { CATEGORIES, NAV_ITEMS } from "@/app/constants"
 import Image from "next/image"
 
 export function generateStaticParams() {
-    
-    const params = []
-    let category:ArticleCategory
 
-    for (category in CATEGORIES) {
-        params.push({
+    return NAV_ITEMS.map(navItem => {
+        return {
             params: {
-                category,
-                articles: ArticleAPI.fetchByCategory(category)
+                category: navItem.category,
             }
-        })
-    }
-
-    return params
+        }
+    })
 }
 
 export default async function ArticlesByCategory (p: {
