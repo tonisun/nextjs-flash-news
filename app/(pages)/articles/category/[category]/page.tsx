@@ -1,6 +1,6 @@
 import { ArticleAPI } from "@/app/api/article-api"
 import { ArticleList } from "@/app/components/ArticleList/ArticleList"
-import { Article, ArticleCategory } from "@/app/types/article-type"
+import { ArticleCategory } from "@/app/types/article-type"
 import { CATEGORIES } from "@/app/constants"
 import Image from "next/image"
 
