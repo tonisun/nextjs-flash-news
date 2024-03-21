@@ -6,6 +6,7 @@ export default function IndexPage() {
 
   return (
     <div>
+      {/*<Spinner />*/}
       <LatestNews />
     </div>
   )
