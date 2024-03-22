@@ -33,7 +33,7 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "build/types/**/*.ts"
-  ],
+, "app/not-found.js"  ],
   "exclude": [
     "node_modules"
   ]

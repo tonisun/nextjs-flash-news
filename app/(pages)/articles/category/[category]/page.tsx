@@ -1,7 +1,7 @@
 import { ArticleAPI } from "@/app/api/article-api"
 import { ArticleList } from "@/app/components/ArticleList/ArticleList"
 import { ArticleCategory } from "@/app/types/article-type"
-import { CATEGORIES, NAV_ITEMS } from "@/app/constants"
+import { CATEGORIES} from "@/app/constants"
 import Image from "next/image"
 
 export const dynamic = "force-dynamic"
@@ -28,7 +28,7 @@ export default async function ArticlesByCategory (p: {
 }) {
 
     const articles = await ArticleAPI.fetchByCategory(p.params.category)
-    //const articles = undefined
+    
     return ( 
         <div>
             <div className="flex items-center space-x-4 mb-16">

@@ -1,4 +1,5 @@
-import "./globals.css"
+import { Navbar } from "@/app/components/Navbar/Navbar"
+import "@/app/(pages)/globals.css"
 import {Poppins, Roboto_Mono, Inter} from "next/font/google"
 import { Metadata } from "next"
 
@@ -30,8 +31,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="de">
-      <body className={`${poppins.className}`}>
-      {children}
+      <body className={`${poppins.className} flex p-8`}>
+        <Navbar/> 
+        <div className="px-8 mt-16 w-full">
+         {children}
+        </div>
+        
       </body>
     </html>
   )
