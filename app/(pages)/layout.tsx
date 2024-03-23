@@ -1,28 +1,8 @@
 import { Navbar } from "@/app/components/Navbar/Navbar"
-import "@/app/(pages)/globals.css"
-import {Poppins, Roboto_Mono, Inter} from "next/font/google"
-import { Metadata } from "next"
 
-const poppins = Poppins({subsets: ["latin"], weight: "400"})
-const roboto = Roboto_Mono({subsets: ["latin"]})
-const inter = Inter({subsets: ["latin"]})
-
-export const metadata: Metadata = {
-  title: "Nextjs flash news",
-  description: "Get the latest flash news",
-  icons: {
-    icon: [
-        '@/public/assets/icons/favicon.ico?v=4',
-    ],
-    apple: [
-      '@/public/assets/icons/apple-touch-icon.png?v=4',
-    ],
-    shortcut: [
-      '@/public/assets/icons/apple-touch-icon.png'
-    ],
-  },
-}
-
+import dynamic from 'next/dynamic'
+// NoSSR === No Server Side Rendering
+const RandomNoSSR = dynamic(() => import('@/app/components/Random/Random'), { ssr: false })
 
 export default function RootLayout({
   children,
@@ -30,14 +10,12 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="de">
-      <body className={`${poppins.className} flex p-8`}>
-        <Navbar/> 
-        <div className="px-8 mt-16 w-full">
-         {children}
-        </div>
-        
-      </body>
-    </html>
+    <div className="flex p-8">
+      <RandomNoSSR />
+      <Navbar/> 
+      <div className="px-8 mt-16 w-full">
+        {children}
+      </div>   
+    </div>
   )
 }
