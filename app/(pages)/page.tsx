@@ -1,6 +1,6 @@
 
 import { LatestNews, LatestNewsSkeleton } from "@/app/components/LatestNews/LatestNews"
-import { CryptoNews, CryptoNewsSkeleton } from "../components/CryptoNews/CryptoNews.server"
+import { CryptoNews, CryptoNewsSkeleton } from "@/app/components/CryptoNews/CryptoNews.server"
 import { Suspense } from "react"
 
 
