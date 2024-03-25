@@ -8,15 +8,14 @@ export default function IndexPage() {
 
   return (
     <div className="flex justify-between">
-      <Suspense fallback={
-          <LatestNewsSkeleton />
-        }
-      >
+
+      {/* Latest News Component */}
+      <Suspense fallback={<LatestNewsSkeleton />}>
         <LatestNews />
       </Suspense>
-      <Suspense fallback={
-        <CryptoNewsSkeleton/>
-      }>
+
+      {/* Crypto News Component */}
+      <Suspense fallback={<CryptoNewsSkeleton/>}>
         <CryptoNews />
       </Suspense>
     </div>
