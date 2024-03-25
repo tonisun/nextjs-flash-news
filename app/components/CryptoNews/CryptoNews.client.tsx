@@ -3,6 +3,7 @@
 import { CoincapApi } from "@/app/api/coincap-api"
 import { useEffect, useState } from "react"
 
+
 export function CryptoNews (p: {initialData: CoincapItem}) {
 
     const [cryptoNews, setCryptoNews] = useState<CoincapItem>(p.initialData)

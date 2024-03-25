@@ -1,4 +1,5 @@
 import "./globals.css"
+import 'react-loading-skeleton/dist/skeleton.css'
 import {Poppins, Roboto_Mono, Inter} from "next/font/google"
 import { Metadata } from "next"
 
